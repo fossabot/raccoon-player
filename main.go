@@ -142,8 +142,10 @@ func getReplaysFromTextFile() {
 
 	lines := bytes.Split(data, []byte("\n"))
 	for _, line := range lines {
-		replays = append(replays, line)
-		replays = append(replays, []byte("\n"))
+		if len(line) > 2 {
+			replays = append(replays, line)
+			replays = append(replays, []byte("\n"))
+		}
 	}
 }
 
